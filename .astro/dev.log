@@ -2,25 +2,10 @@
 {"message":"Generated 1ms","label":"types","level":"info"}
 {"message":"connected.","label":"vite","level":"info"}
 {"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
-{"message":" astro  v7.0.6 ready in 3431 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":" astro  v7.0.6 ready in 3829 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
 {"message":"watching for file changes...","label":null,"level":"info"}
-{"message":"[200] /wonder-maker 67ms","label":null,"level":"info"}
-{"message":"[200] /wonder-maker 10ms","label":null,"level":"info"}
-{"message":"[200] /wonder-maker 15ms","label":null,"level":"info"}
-{"message":"[200] / 72ms","label":null,"level":"info"}
-{"message":"[200] /about 48ms","label":null,"level":"info"}
-{"message":"[200] / 94ms","label":null,"level":"info"}
-{"message":"[200] / 97ms","label":null,"level":"info"}
-{"message":"[200] /about 21ms","label":null,"level":"info"}
-{"message":"[200] /about 47ms","label":null,"level":"info"}
-{"message":"[200] / 59ms","label":null,"level":"info"}
-{"message":"[200] /contact 78ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] / 62ms","label":null,"level":"info"}
-{"message":"[200] / 33ms","label":null,"level":"info"}
-{"message":"[200] /wonder-maker 56ms","label":null,"level":"info"}
-{"message":"src/layouts/BaseLayout.astro","label":"watch","level":"info"}
-{"message":"src/layouts/BaseLayout.astro","label":"watch","level":"info"}
-{"message":"program reload","label":"vite","level":"info"}
-{"message":"An error happened during full reload\nFailed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?\nError: Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?\n    at loadAndTransform (file:///home/manzft/Projects/manzft-web/node_modules/vite/dist/node/chunks/node.js:19718:31)","label":"vite","level":"error"}
-{"message":"program reload","label":"vite","level":"info"}
+{"message":"[200] / 75ms","label":null,"level":"info"}
+{"message":"[200] / 15ms","label":null,"level":"info"}
+{"message":"[200] /fanarts 88ms","label":null,"level":"info"}
+{"message":"[200] /wonder-maker 73ms","label":null,"level":"info"}
+{"message":"[200] /about 64ms","label":null,"level":"info"}
