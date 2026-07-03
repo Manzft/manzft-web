@@ -15,3 +15,7 @@
 {"message":"[200] /about 47ms","label":null,"level":"info"}
 {"message":"[200] / 59ms","label":null,"level":"info"}
 {"message":"[200] /contact 78ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 62ms","label":null,"level":"info"}
+{"message":"[200] / 33ms","label":null,"level":"info"}
+{"message":"[200] /wonder-maker 56ms","label":null,"level":"info"}
