@@ -1,0 +1,32 @@
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Generated 1ms","label":"types","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
+{"message":" astro  v7.0.6 ready in 3004 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":"watching for file changes...","label":null,"level":"info"}
+{"message":"[200] / 51ms","label":null,"level":"info"}
+{"message":"[200] / 8ms","label":null,"level":"info"}
+{"message":"[200] /about 72ms","label":null,"level":"info"}
+{"message":"[200] / 99ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 66ms","label":null,"level":"info"}
+{"message":"[200] /about 18ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /about 97ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /about 62ms","label":null,"level":"info"}
+{"message":"[200] /about 50ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /about 28ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /about 30ms","label":null,"level":"info"}
+{"message":"[200] /about 30ms","label":null,"level":"info"}
+{"message":"[200] /wonder-maker 75ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /wonder-maker 50ms","label":null,"level":"info"}
+{"message":"[200] /wonder-maker 37ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] /wonder-maker 35ms","label":null,"level":"info"}
