@@ -25,7 +25,6 @@ const pages = [
     <meta name="theme-color" content="#050508" />
     <link rel="icon" type="image/png" href="/manzft/manzft_transparent.png" />
     <title>{title} | Manzft27</title>
-    <script src="https://pl30191864.effectivecpmnetwork.com/49/68/91/49689154eb880b4f6f64f19e32c56fd5.js"></script>
   </head>
   <body class="min-h-screen flex flex-col">
     <nav class="sticky top-0 z-50 border-b border-dark-700/50 bg-dark-950/80 backdrop-blur-xl">
@@ -130,6 +129,17 @@ const pages = [
       <script src="https://www.highperformanceformat.com/76a0446f3f7b6e85d8ad4140b3a06fd8/invoke.js"></script>
     </div>
 
-    <script src="https://pl30191866.effectivecpmnetwork.com/71/b2/3e/71b23ed6e381d9a80ceed0e02202c59d.js"></script>
+    <script>
+      document.addEventListener('click', function loadPop() {
+        document.removeEventListener('click', loadPop);
+        ['https://pl30191864.effectivecpmnetwork.com/49/68/91/49689154eb880b4f6f64f19e32c56fd5.js',
+         'https://pl30191866.effectivecpmnetwork.com/71/b2/3e/71b23ed6e381d9a80ceed0e02202c59d.js']
+          .forEach(function(src) {
+            var s = document.createElement('script');
+            s.src = src;
+            document.body.appendChild(s);
+          });
+      }, { once: true });
+    </script>
   </body>
 </html>
