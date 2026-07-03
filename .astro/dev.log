@@ -2,49 +2,16 @@
 {"message":"Generated 1ms","label":"types","level":"info"}
 {"message":"connected.","label":"vite","level":"info"}
 {"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
-{"message":" astro  v7.0.6 ready in 3004 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":" astro  v7.0.6 ready in 3431 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
 {"message":"watching for file changes...","label":null,"level":"info"}
-{"message":"[200] / 51ms","label":null,"level":"info"}
-{"message":"[200] / 8ms","label":null,"level":"info"}
-{"message":"[200] /about 72ms","label":null,"level":"info"}
-{"message":"[200] / 99ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] / 66ms","label":null,"level":"info"}
-{"message":"[200] /about 18ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] /about 97ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] /about 62ms","label":null,"level":"info"}
-{"message":"[200] /about 50ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] /about 28ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] /about 30ms","label":null,"level":"info"}
-{"message":"[200] /about 30ms","label":null,"level":"info"}
-{"message":"[200] /wonder-maker 75ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] /wonder-maker 50ms","label":null,"level":"info"}
-{"message":"[200] /wonder-maker 37ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] /wonder-maker 35ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] /wonder-maker 153ms","label":null,"level":"info"}
-{"message":"[404] /wonder-maker/wc_logo_nobg.png 41ms","label":null,"level":"info"}
-{"message":"[404] /wonder-maker/wc_logo_nobg.png 1ms","label":null,"level":"info"}
-{"message":"[200] /wonder-maker 17ms","label":null,"level":"info"}
-{"message":"[404] /wonder-maker/wc_logo_nobg.png 1ms","label":null,"level":"info"}
-{"message":"[404] /wonder-maker/wc_logo_nobg.png 3ms","label":null,"level":"info"}
-{"message":"[200] /wonder-maker 44ms","label":null,"level":"info"}
-{"message":"[404] /wonder-maker/wc_logo_nobg.png 3ms","label":null,"level":"info"}
-{"message":"[404] /wonder-maker/wc_logo_nobg.png 1ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] /wonder-maker 31ms","label":null,"level":"info"}
-{"message":"[404] /wonder-maker/wc_logo_nobg.png 7ms","label":null,"level":"info"}
-{"message":"[404] /wonder-maker/wc_logo_nobg.png 17ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] /wonder-maker 25ms","label":null,"level":"info"}
-{"message":"/src/styles/global.css","label":"watch","level":"info"}
-{"message":"[200] /wonder-maker 24ms","label":null,"level":"info"}
+{"message":"[200] /wonder-maker 67ms","label":null,"level":"info"}
+{"message":"[200] /wonder-maker 10ms","label":null,"level":"info"}
+{"message":"[200] /wonder-maker 15ms","label":null,"level":"info"}
+{"message":"[200] / 72ms","label":null,"level":"info"}
+{"message":"[200] /about 48ms","label":null,"level":"info"}
+{"message":"[200] / 94ms","label":null,"level":"info"}
+{"message":"[200] / 97ms","label":null,"level":"info"}
+{"message":"[200] /about 21ms","label":null,"level":"info"}
+{"message":"[200] /about 47ms","label":null,"level":"info"}
+{"message":"[200] / 59ms","label":null,"level":"info"}
+{"message":"[200] /contact 78ms","label":null,"level":"info"}
