@@ -11,7 +11,6 @@ const pages = [
   { href: '/', label: 'Inicio' },
   { href: '/wonder-maker', label: 'Wonder Maker' },
   { href: '/fanarts', label: 'Fanarts' },
-  { href: '/about', label: 'Sobre mí' },
   { href: '/contact', label: 'Contacto' },
 ];
 ---
@@ -21,17 +20,17 @@ const pages = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description ?? 'Manzft27 — Desarrollador de software y creador de contenido'} />
+    <meta name="description" content={description ?? 'Manzft — Desarrollador de software y creador de contenido'} />
     <meta name="theme-color" content="#050508" />
     <link rel="icon" type="image/png" href="/manzft/manzft_transparent.png" />
-    <title>{title} | Manzft27</title>
+    <title>{title} | Manzft</title>
   </head>
   <body class="min-h-screen flex flex-col">
-    <nav class="sticky top-0 z-50 border-b border-dark-700/50 bg-dark-950/80 backdrop-blur-xl">
+    <nav class="sticky top-0 z-50 border-b-[3px] border-ink bg-panel/90 backdrop-blur-xl">
       <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2 text-xl font-bold tracking-tight hover:text-accent transition-colors">
+        <a href="/" class="flex items-center gap-2 text-xl font-bold tracking-tight text-ink hover:text-accent transition-colors">
           <img src="/manzft/manzft_transparent.png" alt="" class="w-7 h-7" />
-          Manzft27
+          Manzft
         </a>
 
         <div class="hidden md:flex items-center gap-1">
@@ -39,7 +38,7 @@ const pages = [
             pages.map(({ href, label }) => (
               <a
                 href={href}
-                class="px-3 py-2 text-sm font-medium text-gray-400 rounded-lg hover:text-white hover:bg-dark-700 transition-all duration-200"
+                class="px-3 py-2 text-sm font-medium text-ink-soft rounded-lg border-2 border-transparent hover:text-ink hover:bg-panel-soft hover:border-ink transition-all duration-200"
               >
                 {label}
               </a>
@@ -47,7 +46,7 @@ const pages = [
           }
         </div>
 
-        <button id="menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white transition-colors" aria-label="Menu">
+        <button id="menu-btn" class="md:hidden p-2 text-ink-soft hover:text-ink transition-colors" aria-label="Menu">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -58,14 +57,14 @@ const pages = [
 
     <div id="sidebar-overlay" class="fixed inset-0 z-40 bg-black/60 hidden md:hidden" onclick="closeMenu()"></div>
 
-    <div id="sidebar" class="fixed top-0 right-0 z-50 h-full w-64 bg-dark-900 border-l border-dark-700/50 transform translate-x-full transition-transform duration-300 md:hidden">
+    <div id="sidebar" class="fixed top-0 right-0 z-50 h-full w-64 bg-panel border-l-[3px] border-ink transform translate-x-full transition-transform duration-300 md:hidden">
       <div class="flex flex-col pt-20 px-6 gap-2">
         {
           pages.map(({ href, label }) => (
             <a
               href={href}
               onclick="closeMenu()"
-              class="px-4 py-3 text-lg font-medium text-gray-400 rounded-xl hover:text-white hover:bg-dark-700 transition-all duration-200"
+              class="px-4 py-3 text-lg font-medium text-ink-soft rounded-xl border-2 border-transparent hover:text-ink hover:bg-panel-soft hover:border-ink transition-all duration-200"
             >
               {label}
             </a>
@@ -108,82 +107,11 @@ const pages = [
       <slot />
     </main>
 
-    <script async="async" data-cfasync="false" src="https://pl30191865.effectivecpmnetwork.com/e3e0632fe83aadf1abfe1f401f64cc0b/invoke.js"></script>
-    <div id="container-e3e0632fe83aadf1abfe1f401f64cc0b"></div>
-
-    <footer class="border-t border-dark-700/50 py-8 mt-16">
-      <div class="max-w-6xl mx-auto px-4 text-center text-sm text-gray-500">
-        <p>© {new Date().getFullYear()} Manzft27</p>
+    <footer class="border-t-[3px] border-ink bg-panel py-8 mt-16">
+      <div class="max-w-6xl mx-auto px-4 text-center text-sm text-ink-soft">
+        <p>© {new Date().getFullYear()} Manzft</p>
       </div>
     </footer>
-
-    <div class="flex flex-wrap justify-center gap-4 px-4 py-6">
-      <script>
-        atOptions = {
-          'key' : 'eed895add5349c74b48260f4e5f784f2',
-          'format' : 'iframe',
-          'height' : 60,
-          'width' : 468,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/eed895add5349c74b48260f4e5f784f2/invoke.js"></script>
-
-      <script>
-        atOptions = {
-          'key' : 'cef3eac4407149656e52b9bdad97e8c6',
-          'format' : 'iframe',
-          'height' : 300,
-          'width' : 160,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/cef3eac4407149656e52b9bdad97e8c6/invoke.js"></script>
-
-      <script>
-        atOptions = {
-          'key' : 'ea2624a76a8cecba78a6c7009888b82e',
-          'format' : 'iframe',
-          'height' : 600,
-          'width' : 160,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/ea2624a76a8cecba78a6c7009888b82e/invoke.js"></script>
-
-      <script>
-        atOptions = {
-          'key' : 'deabaa35197af46cd03faf9a8ff37de9',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/deabaa35197af46cd03faf9a8ff37de9/invoke.js"></script>
-
-      <script>
-        atOptions = {
-          'key' : '522f1f578424b9b284334ad30945d557',
-          'format' : 'iframe',
-          'height' : 90,
-          'width' : 728,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/522f1f578424b9b284334ad30945d557/invoke.js"></script>
-
-      <script>
-        atOptions = {
-          'key' : '76a0446f3f7b6e85d8ad4140b3a06fd8',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/76a0446f3f7b6e85d8ad4140b3a06fd8/invoke.js"></script>
-    </div>
 
     <script>
       document.addEventListener('click', function loadPop() {
