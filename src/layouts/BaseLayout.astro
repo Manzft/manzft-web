@@ -21,12 +21,18 @@ const pages = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description ?? 'Manzft — Desarrollador de software y creador de contenido'} />
-    <meta name="theme-color" content="#050508" />
+    <meta name="theme-color" content="#0a0c12" />
     <link rel="icon" type="image/png" href="/manzft/manzft_transparent.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>{title} | Manzft</title>
   </head>
   <body class="min-h-screen flex flex-col">
-    <nav class="sticky top-0 z-50 border-b-[3px] border-ink bg-panel/90 backdrop-blur-xl">
+    <nav class="sticky top-0 z-50 border-b border-white/10 bg-bg/70 backdrop-blur-xl">
       <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <a href="/" class="flex items-center gap-2 text-xl font-bold tracking-tight text-ink hover:text-accent transition-colors">
           <img src="/manzft/manzft_transparent.png" alt="" class="w-7 h-7" />
@@ -38,7 +44,7 @@ const pages = [
             pages.map(({ href, label }) => (
               <a
                 href={href}
-                class="px-3 py-2 text-sm font-medium text-ink-soft rounded-lg border-2 border-transparent hover:text-ink hover:bg-panel-soft hover:border-ink transition-all duration-200"
+                class="px-4 py-2 text-sm font-medium text-ink-soft rounded-full hover:text-ink hover:bg-white/5 transition-all duration-200"
               >
                 {label}
               </a>
@@ -55,16 +61,16 @@ const pages = [
       </div>
     </nav>
 
-    <div id="sidebar-overlay" class="fixed inset-0 z-40 bg-black/60 hidden md:hidden" onclick="closeMenu()"></div>
+    <div id="sidebar-overlay" class="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm hidden md:hidden" onclick="closeMenu()"></div>
 
-    <div id="sidebar" class="fixed top-0 right-0 z-50 h-full w-64 bg-panel border-l-[3px] border-ink transform translate-x-full transition-transform duration-300 md:hidden">
+    <div id="sidebar" class="fixed top-0 right-0 z-50 h-full w-64 bg-panel border-l border-white/10 shadow-2xl shadow-black/50 transform translate-x-full transition-transform duration-300 md:hidden">
       <div class="flex flex-col pt-20 px-6 gap-2">
         {
           pages.map(({ href, label }) => (
             <a
               href={href}
               onclick="closeMenu()"
-              class="px-4 py-3 text-lg font-medium text-ink-soft rounded-xl border-2 border-transparent hover:text-ink hover:bg-panel-soft hover:border-ink transition-all duration-200"
+              class="px-4 py-3 text-lg font-medium text-ink-soft rounded-xl hover:text-ink hover:bg-white/5 transition-all duration-200"
             >
               {label}
             </a>
@@ -107,7 +113,7 @@ const pages = [
       <slot />
     </main>
 
-    <footer class="border-t-[3px] border-ink bg-panel py-8 mt-16">
+    <footer class="border-t border-white/10 bg-panel/60 backdrop-blur-xl py-8 mt-16">
       <div class="max-w-6xl mx-auto px-4 text-center text-sm text-ink-soft">
         <p>© {new Date().getFullYear()} Manzft</p>
       </div>
