@@ -21,10 +21,91 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Construye y juega niveles con la estética y fluidez de <span class="text-accent">Mario Wonder</span>
       </p>
 
-      <div class="inline-flex items-center gap-3 px-4 py-2 bg-panel rounded-full border border-white/10 text-sm text-ink-soft mb-10">
+      <div class="inline-flex items-center gap-3 px-4 py-2 bg-panel rounded-full border border-white/10 text-sm text-ink-soft mb-3">
         <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse" />
         Beta v1.1.1 disponible
       </div>
+
+      <div id="download-count" class="flex items-center justify-center gap-3 px-5 py-2.5 bg-panel rounded-2xl border border-white/10 mb-10 w-fit mx-auto shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+        <span class="grid place-items-center w-9 h-9 rounded-full bg-accent/15 border border-accent/30">
+          <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v12m0 0-4-4m4 4 4-4M4 18v0a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v0"/>
+          </svg>
+        </span>
+        <span class="text-left leading-tight">
+          <span id="download-count-number" class="block text-xl font-extrabold text-accent tabular-nums leading-none">0</span>
+          <span class="text-[11px] uppercase tracking-widest font-semibold text-ink-soft mt-0.5">Descargas</span>
+        </span>
+      </div>
+
+      <style>
+        #download-count {
+          animation: wm-count-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards;
+        }
+        @keyframes wm-count-pop {
+          from {
+            opacity: 0;
+            transform: translateY(10px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: none;
+          }
+        }
+      </style>
+
+      <script>
+        const numEl = document.getElementById('download-count-number');
+        const CACHE_KEY = 'wm-dl-count';
+        const CACHE_TS = 'wm-dl-count-ts';
+        const DAY = 24 * 60 * 60 * 1000;
+
+        function animateCount(from, to) {
+          const duration = 1200;
+          const start = performance.now();
+          function frame(now) {
+            const t = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - t, 3);
+            numEl.textContent = Math.round(from + (to - from) * eased).toLocaleString('es-ES');
+            if (t < 1) requestAnimationFrame(frame);
+          }
+          requestAnimationFrame(frame);
+        }
+
+        function cachedCount() {
+          try {
+            const ts = localStorage.getItem(CACHE_TS);
+            if (ts && Date.now() - Number(ts) < DAY) {
+              return Number(localStorage.getItem(CACHE_KEY));
+            }
+          } catch (e) {}
+          return null;
+        }
+
+        function cacheCount(n) {
+          try {
+            localStorage.setItem(CACHE_KEY, String(n));
+            localStorage.setItem(CACHE_TS, String(Date.now()));
+          } catch (e) {}
+        }
+
+        const cached = cachedCount();
+        if (cached !== null) animateCount(0, cached);
+
+        fetch('https://api.github.com/repos/Manzft/wonder-maker-public/releases?per_page=100')
+          .then((r) => r.json())
+          .then((releases) => {
+            const total = releases.reduce(
+              (sum, rel) => sum + (rel.assets || []).reduce((s, a) => s + (a.download_count || 0), 0),
+              0
+            );
+            animateCount(cached ?? 0, total);
+            cacheCount(total);
+          })
+          .catch(() => {
+            if (cached === null) numEl.textContent = '—';
+          });
+      </script>
 
       <div class="flex flex-wrap justify-center gap-4">
         <a href="#download" class="btn-primary">
