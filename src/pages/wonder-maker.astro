@@ -116,7 +116,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h3>Windows</h3>
           <p>EXE</p>
           <div class="wm-btn-wrap">
-            <a href="https://github.com/Manzft/wonder-maker-fangame/releases/download/Beta-v1.1.1/wm-beta-v1.1.1-windows.zip" target="_blank" rel="noopener noreferrer" class="wm-btn wm-btn--sm">
+            <a href="https://github.com/Manzft/wonder-maker-fangame/releases/download/Beta-v1.1.1/wm-beta-v1.1.1-windows.zip" target="_blank" rel="noopener noreferrer" class="wm-btn wm-btn--sm wm-download">
               <span class="wm-btn__frame"><span class="wm-btn__face">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 4v12m0 0-4-4m4 4 4-4M4 19h16" />
@@ -136,7 +136,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h3>Android</h3>
           <p>APK</p>
           <div class="wm-btn-wrap">
-            <a href="https://github.com/Manzft/wonder-maker-fangame/releases/download/Beta-v1.1.1/wm-beta-v1.1.1-android.apk" target="_blank" rel="noopener noreferrer" class="wm-btn wm-btn--sm">
+            <a href="https://github.com/Manzft/wonder-maker-fangame/releases/download/Beta-v1.1.1/wm-beta-v1.1.1-android.apk" target="_blank" rel="noopener noreferrer" class="wm-btn wm-btn--sm wm-download">
               <span class="wm-btn__frame"><span class="wm-btn__face">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 4v12m0 0-4-4m4 4 4-4M4 19h16" />
@@ -157,7 +157,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h3>Linux</h3>
           <p>X86_64</p>
           <div class="wm-btn-wrap">
-            <a href="https://github.com/Manzft/wonder-maker-fangame/releases/download/Beta-v1.1.1/wm-beta-v1.1.1-linux.zip" target="_blank" rel="noopener noreferrer" class="wm-btn wm-btn--sm">
+            <a href="https://github.com/Manzft/wonder-maker-fangame/releases/download/Beta-v1.1.1/wm-beta-v1.1.1-linux.zip" target="_blank" rel="noopener noreferrer" class="wm-btn wm-btn--sm wm-download">
               <span class="wm-btn__frame"><span class="wm-btn__face">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 4v12m0 0-4-4m4 4 4-4M4 19h16" />
@@ -190,6 +190,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
     </section>
+  </div>
+
+  <div id="wm-ad-modal" class="wm-ad-overlay" hidden>
+    <div class="wm-ad-window" role="dialog" aria-modal="true" aria-labelledby="wm-ad-title" tabindex="-1">
+      <div class="wm-ad-titlebar">
+        <span class="wm-ad-title-left">
+          <svg class="wm-ad-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 21s-7.5-4.6-9.5-8.4C1 9.7 2.4 6.5 5.5 5.8 7.4 5.4 9.2 6.3 12 9c2.8-2.7 4.6-3.6 6.5-3.2 3.1.7 4.5 3.9 3 6.8C19.5 16.4 12 21 12 21z" />
+          </svg>
+          <h3 id="wm-ad-title" data-i18n="support.title">Apoyo</h3>
+        </span>
+        <button id="wm-ad-close" class="wm-ad-close" type="button" data-i18n-aria="support.close" aria-label="Cerrar">✕</button>
+      </div>
+
+      <div class="wm-ad-body">
+        <p class="wm-ad-copy">
+          <span data-i18n="support.before">Un anuncio se abrirá en</span>
+          <span id="wm-ad-count" class="wm-ad-count">5</span>
+          <span data-i18n="support.after">segundos para apoyar de forma gratuita al proyecto, puedes cerrarlo en cuanto se abra, después de eso podrás descargar sin ningún problema.</span>
+        </p>
+
+        <div class="wm-btn-wrap wm-ad-download-wrap">
+          <a id="wm-ad-download" class="wm-btn wm-btn--lg is-locked" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true" tabindex="-1">
+            <span class="wm-btn__frame"><span class="wm-btn__face">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 4v12m0 0-4-4m4 4 4-4M4 19h16" />
+              </svg>
+              <span data-i18n="support.download">Descargar</span>
+            </span></span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <style is:global>
@@ -636,6 +669,153 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     body:has(.wm-page) footer {
       margin-top: 0;
     }
+
+    /* ---------- Ventana de apoyo ---------- */
+    .wm-ad-overlay {
+      --wm-ink: #20261b;
+      --wm-cream: #f4f1e4;
+      --wm-green-dark: #2e3a27;
+      --wm-yellow: #fdff12;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(10, 14, 8, .72);
+      backdrop-filter: blur(6px);
+    }
+
+    .wm-ad-overlay[hidden] {
+      display: none;
+    }
+
+    .wm-ad-window {
+      width: min(480px, 100%);
+      max-height: calc(100vh - 48px);
+      overflow: auto;
+      border: 3px solid var(--wm-ink);
+      border-radius: 20px;
+      background: var(--wm-cream);
+      box-shadow:
+        0 8px 0 rgba(0, 0, 0, .28),
+        0 26px 60px rgba(0, 0, 0, .48);
+      outline: none;
+    }
+
+    .wm-ad-titlebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 16px 13px 18px;
+      background: var(--wm-green-dark);
+      color: var(--wm-cream);
+      border-bottom: 3px solid var(--wm-ink);
+    }
+
+    .wm-ad-title-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .wm-ad-heart {
+      width: 27px;
+      height: 27px;
+      flex: none;
+      color: #e94b3c;
+      filter: drop-shadow(0 2px 0 rgba(0, 0, 0, .3));
+    }
+
+    .wm-ad-titlebar h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--wm-cream);
+    }
+
+    .wm-ad-close {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      flex: none;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, .25);
+      background: transparent;
+      color: var(--wm-cream);
+      font: 700 15px/1 var(--font-sans);
+      cursor: pointer;
+      transition: background .15s ease;
+    }
+
+    .wm-ad-close:hover {
+      background: rgba(255, 255, 255, .14);
+    }
+
+    .wm-ad-body {
+      padding: 22px 22px 24px;
+      text-align: center;
+    }
+
+    .wm-ad-copy {
+      margin: 0 0 20px;
+      color: #4b5443;
+      font-size: 1rem;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .wm-ad-count {
+      display: inline-grid;
+      place-items: center;
+      position: relative;
+      top: -0.14em;
+      min-width: 2rem;
+      height: 2rem;
+      margin: 0 .2rem;
+      padding: 0 .35rem;
+      border-radius: 999px;
+      background: var(--wm-yellow);
+      color: var(--wm-ink);
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1;
+      box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .12);
+      vertical-align: middle;
+    }
+
+    .wm-ad-download-wrap {
+      margin: 0 auto;
+    }
+
+    .wm-btn.is-locked {
+      opacity: .42;
+      filter: saturate(.35);
+      pointer-events: none;
+    }
+
+    @media (max-width: 560px) {
+      .wm-ad-overlay {
+        padding: 16px;
+      }
+
+      .wm-ad-titlebar h3 {
+        font-size: 1.25rem;
+      }
+
+      .wm-ad-body {
+        padding: 18px 16px 20px;
+      }
+
+      .wm-ad-copy {
+        font-size: .95rem;
+      }
+    }
   </style>
 
   <script>
@@ -689,5 +869,85 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       .catch(() => {
         if (cached === null) numEl.textContent = '—';
       });
+
+    (() => {
+      const AD_URL = 'https://asiafilm.org/4/3cc45a8aed4cd9cc39510b5d448a6149';
+      const AD_SECONDS = 5;
+      const overlay = document.getElementById('wm-ad-modal');
+      const windowEl = overlay ? overlay.querySelector('.wm-ad-window') : null;
+      const closeBtn = document.getElementById('wm-ad-close');
+      const countEl = document.getElementById('wm-ad-count');
+      const downloadBtn = document.getElementById('wm-ad-download');
+
+      if (!overlay || !windowEl || !countEl || !downloadBtn) return;
+
+      let timer = null;
+      let pendingUrl = '';
+      let seconds = AD_SECONDS;
+
+      function setLocked(locked) {
+        if (locked) {
+          downloadBtn.classList.add('is-locked');
+          downloadBtn.setAttribute('aria-disabled', 'true');
+          downloadBtn.setAttribute('tabindex', '-1');
+          downloadBtn.setAttribute('href', '#');
+        } else {
+          downloadBtn.classList.remove('is-locked');
+          downloadBtn.setAttribute('aria-disabled', 'false');
+          downloadBtn.removeAttribute('tabindex');
+          downloadBtn.setAttribute('href', pendingUrl);
+        }
+      }
+
+      function finish() {
+        clearInterval(timer);
+        timer = null;
+
+        window.open(AD_URL, '_blank', 'noopener,noreferrer');
+        setLocked(false);
+      }
+
+      function start(url) {
+        pendingUrl = url;
+        seconds = AD_SECONDS;
+        countEl.textContent = String(seconds);
+
+        setLocked(true);
+        overlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+        windowEl.focus();
+
+        clearInterval(timer);
+        timer = setInterval(function () {
+          seconds -= 1;
+          countEl.textContent = String(Math.max(seconds, 0));
+          if (seconds <= 0) finish();
+        }, 1000);
+      }
+
+      function close() {
+        clearInterval(timer);
+        timer = null;
+        overlay.hidden = true;
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.wm-download').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          start(link.href);
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', function () { close(); });
+
+      overlay.addEventListener('click', function (event) {
+        if (event.target === overlay) close();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !overlay.hidden) close();
+      });
+    })();
   </script>
 </BaseLayout>
