@@ -197,4 +197,268 @@
   .btn-glow:hover::before {
     opacity: 1;
   }
+
+  /* ============================================================
+     Wonder Maker — botón estilo Super Mario Bros. Wonder
+     Reutilizable: .wm-btn (+ .wm-btn--icon, .wm-btn--lg)
+     Capas: anillo blanco > marco negro > cara (blanca / amarilla)
+     Cada capa tiene su propio bisel para que las esquinas y el
+     desplazamiento del cuerpo central queden coherentes.
+     ============================================================ */
+  .wm-btn {
+    --wm-white: #ffffff;
+    --wm-ink: #1e1d1f;
+    --wm-face: #ffffff;
+    --wm-face-hot: #fdff12;
+    --wm-ring: 5px;
+    --wm-edge: 9px;
+    --wm-depth: 4px;
+    --wm-cut-tl: 14px;
+    --wm-cut-tr: 23px;
+    --wm-cut-br: 16px;
+    --wm-cut-bl: 24px;
+    --wm-frame-inset-cut: 4px;
+    --wm-cut-face: 7px;
+    --wm-shape-out: polygon(
+      var(--wm-cut-tl) 0,
+      calc(100% - var(--wm-cut-tr)) 0,
+      100% var(--wm-cut-tr),
+      100% calc(100% - var(--wm-cut-br)),
+      calc(100% - var(--wm-cut-br)) 100%,
+      var(--wm-cut-bl) 100%,
+      0 calc(100% - var(--wm-cut-bl)),
+      0 var(--wm-cut-tl)
+    );
+    --wm-shape-frame: polygon(
+      calc(var(--wm-cut-tl) - var(--wm-frame-inset-cut)) 0,
+      calc(100% - var(--wm-cut-tr) + var(--wm-frame-inset-cut)) 0,
+      100% calc(var(--wm-cut-tr) - var(--wm-frame-inset-cut)),
+      100% calc(100% - var(--wm-cut-br) + var(--wm-frame-inset-cut)),
+      calc(100% - var(--wm-cut-br) + var(--wm-frame-inset-cut)) 100%,
+      calc(var(--wm-cut-bl) - var(--wm-frame-inset-cut)) 100%,
+      0 calc(100% - var(--wm-cut-bl) + var(--wm-frame-inset-cut)),
+      0 calc(var(--wm-cut-tl) - var(--wm-frame-inset-cut))
+    );
+    --wm-oct-face: polygon(
+      var(--wm-cut-face) 0,
+      calc(100% - var(--wm-cut-face)) 0,
+      100% var(--wm-cut-face),
+      100% calc(100% - var(--wm-cut-face)),
+      calc(100% - var(--wm-cut-face)) 100%,
+      var(--wm-cut-face) 100%,
+      0 calc(100% - var(--wm-cut-face)),
+      0 var(--wm-cut-face)
+    );
+
+    position: relative;
+    display: inline-block;
+    padding: var(--wm-ring);
+    background: var(--wm-white);
+    clip-path: var(--wm-shape-out);
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    text-decoration: none;
+    color: var(--wm-ink);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .wm-btn__frame {
+    display: block;
+    padding: var(--wm-edge);
+    background: var(--wm-ink);
+    clip-path: var(--wm-shape-frame);
+  }
+
+  .wm-btn__face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    background: var(--wm-face);
+    clip-path: var(--wm-oct-face);
+    transform: translate(calc(var(--wm-depth) * -1), calc(var(--wm-depth) * -1));
+    transition: background-color 90ms linear;
+  }
+
+  .wm-btn .wm-btn__face {
+    color: var(--wm-ink);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .wm-btn svg {
+    width: 1.4em;
+    height: 1.4em;
+    flex: none;
+    stroke-width: 2.6;
+    overflow: visible;
+  }
+
+  /* Envoltorio para el crecimiento animado del hover.
+     El botón no cambia de tamaño al pulsar; solo cambia de forma. */
+  .wm-btn-wrap {
+    display: inline-flex;
+    filter: drop-shadow(0 4px 0 rgba(0, 0, 0, .16));
+    transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .wm-btn-wrap:hover,
+  .wm-btn-wrap:has(.wm-btn:focus-visible) {
+    transform: scale(1.045);
+  }
+
+  .wm-btn:hover .wm-btn__face,
+  .wm-btn:focus-visible .wm-btn__face {
+    background-color: var(--wm-face-hot);
+  }
+
+  .wm-btn:focus-visible {
+    filter: drop-shadow(0 0 14px rgba(253, 255, 18, 0.5));
+  }
+
+  /* presionado: cambio instantáneo, sin encoger el botón */
+  .wm-btn:active {
+    transform: none;
+    transition: none;
+    clip-path: polygon(
+      15px 0,
+      calc(100% - 15px) 0,
+      100% 15px,
+      100% calc(100% - 15px),
+      calc(100% - 15px) 100%,
+      15px 100%,
+      0 calc(100% - 15px),
+      0 15px
+    );
+  }
+
+  .wm-btn:active .wm-btn__frame {
+    clip-path: polygon(
+      11px 0,
+      calc(100% - 11px) 0,
+      100% 11px,
+      100% calc(100% - 11px),
+      calc(100% - 11px) 100%,
+      11px 100%,
+      0 calc(100% - 11px),
+      0 11px
+    );
+    transition: none;
+  }
+
+  /* el icono conserva su forma pulsada de 20/16 */
+  .wm-btn--icon:active {
+    clip-path: polygon(
+      20px 0,
+      calc(100% - 20px) 0,
+      100% 20px,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      20px 100%,
+      0 calc(100% - 20px),
+      0 20px
+    );
+  }
+
+  .wm-btn--icon:active .wm-btn__frame {
+    clip-path: polygon(
+      16px 0,
+      calc(100% - 16px) 0,
+      100% 16px,
+      100% calc(100% - 16px),
+      calc(100% - 16px) 100%,
+      16px 100%,
+      0 calc(100% - 16px),
+      0 16px
+    );
+  }
+
+  .wm-btn:active .wm-btn__face {
+    background-color: var(--wm-face-hot);
+    transform: translate(0, 0);
+    transition: none;
+  }
+
+  /* tamaños */
+  .wm-btn--icon {
+    --wm-ring: 9px;
+    --wm-edge: 13.5px;
+    --wm-depth: 6.5px;
+    --wm-cut-tl: 18px;
+    --wm-cut-tr: 29px;
+    --wm-cut-br: 20px;
+    --wm-cut-bl: 30px;
+    --wm-cut-face: 9px;
+  }
+
+  .wm-btn--icon .wm-btn__face {
+    width: 107px;
+    height: 107px;
+    padding: 0;
+  }
+
+  .wm-btn--icon svg {
+    width: 88px;
+    height: 88px;
+    stroke-width: 1.95;
+  }
+
+  .wm-btn--lg {
+    font-size: 1.5rem;
+  }
+
+  .wm-btn--lg .wm-btn__face {
+    padding: 1.15rem 1.75rem;
+  }
+
+  .wm-btn--sm {
+    --wm-ring: 3px;
+    --wm-edge: 6px;
+    --wm-depth: 3px;
+    --wm-frame-inset-cut: 2px;
+    --wm-cut-tl: 9px;
+    --wm-cut-tr: 15px;
+    --wm-cut-br: 10px;
+    --wm-cut-bl: 15px;
+    --wm-cut-face: 5px;
+    font-size: 1rem;
+  }
+
+  .wm-btn--sm .wm-btn__face {
+    padding: 0.7rem 1.1rem;
+  }
+
+  .wm-btn--sm:active {
+    clip-path: polygon(
+      10px 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      10px 100%,
+      0 calc(100% - 10px),
+      0 10px
+    );
+  }
+
+  .wm-btn--sm:active .wm-btn__frame {
+    clip-path: polygon(
+      8px 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      0 calc(100% - 8px),
+      0 8px
+    );
+  }
 }

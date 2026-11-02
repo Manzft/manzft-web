@@ -8,10 +8,10 @@ export interface Props {
 
 const { title, description } = Astro.props;
 const pages = [
-  { href: '/', label: 'Inicio' },
-  { href: '/wonder-maker', label: 'Wonder Maker' },
-  { href: '/fanarts', label: 'Fanarts' },
-  { href: '/contact', label: 'Contacto' },
+  { href: '/', label: 'Inicio', key: 'home' },
+  { href: '/wonder-maker', label: 'Wonder Maker', key: 'wonder' },
+  { href: '/fanarts', label: 'Fanarts', key: 'fanarts' },
+  { href: '/contact', label: 'Contacto', key: 'contact' },
 ];
 ---
 
@@ -42,9 +42,10 @@ const pages = [
 
         <div class="hidden md:flex items-center gap-1">
           {
-            pages.map(({ href, label }) => (
+            pages.map(({ href, label, key }) => (
               <a
                 href={href}
+                data-i18n={`nav.${key}`}
                 class="px-4 py-2 text-sm font-medium text-ink-soft rounded-full hover:text-ink hover:bg-white/5 transition-all duration-200"
               >
                 {label}
@@ -53,12 +54,25 @@ const pages = [
           }
         </div>
 
-        <button id="menu-btn" class="md:hidden p-2 text-ink-soft hover:text-ink transition-colors" aria-label="Menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            class="lang-toggle inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium text-ink-soft border border-white/10 hover:text-ink hover:border-accent/40 transition-colors"
+            aria-label="Cambiar idioma"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 100-18 9 9 0 000 18zM3.6 9h16.8M3.6 15h16.8M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3z" />
+            </svg>
+            <span class="lang-label">ES</span>
+          </button>
+
+          <button id="menu-btn" class="md:hidden p-2 text-ink-soft hover:text-ink transition-colors" aria-label="Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </nav>
 
@@ -67,16 +81,27 @@ const pages = [
     <div id="sidebar" class="fixed top-0 right-0 z-50 h-full w-64 bg-panel border-l border-white/10 shadow-2xl shadow-black/50 transform translate-x-full transition-transform duration-300 md:hidden">
       <div class="flex flex-col pt-20 px-6 gap-2">
         {
-          pages.map(({ href, label }) => (
+          pages.map(({ href, label, key }) => (
             <a
               href={href}
               onclick="closeMenu()"
+              data-i18n={`nav.${key}`}
               class="px-4 py-3 text-lg font-medium text-ink-soft rounded-xl hover:text-ink hover:bg-white/5 transition-all duration-200"
             >
               {label}
             </a>
           ))
         }
+        <button
+          type="button"
+          class="lang-toggle mt-4 self-start inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-ink-soft border border-white/10 hover:text-ink hover:border-accent/40 transition-colors"
+          aria-label="Cambiar idioma"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 100-18 9 9 0 000 18zM3.6 9h16.8M3.6 15h16.8M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3z" />
+          </svg>
+          <span class="lang-label">ES</span>
+        </button>
       </div>
     </div>
 
@@ -108,6 +133,180 @@ const pages = [
           closeMenu();
         }
       });
+    </script>
+
+    <script>
+      const WM_I18N = {
+        es: {
+          'lang.switch': 'Cambiar idioma',
+          'nav.home': 'Inicio',
+          'nav.wonder': 'Wonder Maker',
+          'nav.fanarts': 'Fanarts',
+          'nav.contact': 'Contacto',
+          'page.home': 'Inicio',
+          'page.wonder': 'Wonder Maker',
+          'page.fanarts': 'Fanarts',
+          'page.contact': 'Contacto',
+          'meta.home': 'Manzft — Desarrollador de software y creador de contenido',
+          'meta.wonder': 'El mejor fangame de SMM2 con estética Wonder. Editor de niveles para PC, Android y Linux.',
+          'meta.fanarts': 'Arte creado por la comunidad para Manzft.',
+          'meta.contact': 'Todas mis redes sociales en un solo lugar.',
+          'home.role': 'Desarrollador de software & creador de contenido',
+          'home.view': 'Ver Wonder Maker',
+          'home.fangame': 'Fangame de SMM2',
+          'home.desc': 'El editor de Mario definitivo. Construye y juega niveles con la estética y fluidez de Mario Wonder.',
+          'home.explore': 'Explorar proyecto →',
+          'home.socials': 'Mis redes',
+          'home.follow': 'Sígueme y únete a la comunidad',
+          'fanarts.title': 'Fanarts de',
+          'fanarts.sub': 'Arte creado por la comunidad. ¡Gracias por su apoyo!',
+          'fanarts.by': 'por',
+          'contact.title1': 'Conéctate',
+          'contact.title2': 'conmigo',
+          'contact.sub': 'Todas mis redes sociales en un solo lugar. ¡Sígueme y hablemos!',
+          'contact.direct': '¿Quieres contactarme directamente?',
+          'contact.email': 'Email:',
+          'contact.open': 'Siempre estoy abierto a conversar',
+          'wonder.title': 'Una recreación de Super Mario Maker nativa.',
+          'wonder.sub': 'Disponible para PC y Android',
+          'wonder.downloads': 'Descargas',
+          'wonder.downloadBeta': 'Descargar Beta',
+          'wonder.styles': 'Estilos de juego',
+          'wonder.stylesSub': 'Esto es solo una beta, habrán más estilos en la versión final.',
+          'wonder.style1': 'El estilo clásico de Mario pero modernizado.',
+          'wonder.style2': 'Vuela con el Tanooki con nuevas físicas.',
+          'wonder.style3': 'El mejor Mario 2D de los 90.',
+          'wonder.style4': 'Juega en este moderno estilo de forma nativa.',
+          'wonder.downloadTitle': 'Descarga la Beta',
+          'wonder.downloadSub': 'Elige tu plataforma y empieza a crear niveles.',
+          'wonder.download': 'Descargar',
+          'wonder.discordDesc': 'Únete al servidor oficial de Discord para estar al tanto de las novedades, reportar bugs y compartir tus niveles.',
+          'wonder.join': 'Unirse a Wonder Cave'
+        },
+        en: {
+          'lang.switch': 'Switch language',
+          'nav.home': 'Home',
+          'nav.wonder': 'Wonder Maker',
+          'nav.fanarts': 'Fanarts',
+          'nav.contact': 'Contact',
+          'page.home': 'Home',
+          'page.wonder': 'Wonder Maker',
+          'page.fanarts': 'Fanarts',
+          'page.contact': 'Contact',
+          'meta.home': 'Manzft — Software developer and content creator',
+          'meta.wonder': 'The best SMM2 fangame with Wonder aesthetics. Level editor for PC, Android and Linux.',
+          'meta.fanarts': 'Art created by the community for Manzft.',
+          'meta.contact': 'All my social networks in one place.',
+          'home.role': 'Software developer & content creator',
+          'home.view': 'View Wonder Maker',
+          'home.fangame': 'SMM2 fangame',
+          'home.desc': 'The definitive Mario editor. Build and play levels with the look and feel of Mario Wonder.',
+          'home.explore': 'Explore project →',
+          'home.socials': 'My socials',
+          'home.follow': 'Follow me and join the community',
+          'fanarts.title': 'Fanarts by',
+          'fanarts.sub': 'Art created by the community. Thanks for your support!',
+          'fanarts.by': 'by',
+          'contact.title1': 'Connect',
+          'contact.title2': 'with me',
+          'contact.sub': "All my social networks in one place. Follow me and let's talk!",
+          'contact.direct': 'Want to contact me directly?',
+          'contact.email': 'Email:',
+          'contact.open': "I'm always open to chat",
+          'wonder.title': 'A native Super Mario Maker recreation.',
+          'wonder.sub': 'Available for PC and Android',
+          'wonder.downloads': 'Downloads',
+          'wonder.downloadBeta': 'Download Beta',
+          'wonder.styles': 'Play styles',
+          'wonder.stylesSub': 'This is just a beta; more styles will be added in the final version.',
+          'wonder.style1': 'The classic Mario style, modernized.',
+          'wonder.style2': 'Fly with the Tanooki with new physics.',
+          'wonder.style3': 'The best 2D Mario of the 90s.',
+          'wonder.style4': 'Play in this modern style natively.',
+          'wonder.downloadTitle': 'Download the Beta',
+          'wonder.downloadSub': 'Choose your platform and start creating levels.',
+          'wonder.download': 'Download',
+          'wonder.discordDesc': 'Join the official Discord server to keep up with the news, report bugs and share your levels.',
+          'wonder.join': 'Join Wonder Cave'
+        }
+      };
+
+      const WM_LANG_KEY = 'manzft-lang';
+      const WM_PAGE_KEYS = {
+        '/': 'home',
+        '/wonder-maker': 'wonder',
+        '/fanarts': 'fanarts',
+        '/contact': 'contact'
+      };
+
+      function wmGetLang() {
+        try {
+          return localStorage.getItem(WM_LANG_KEY) === 'en' ? 'en' : 'es';
+        } catch (e) {
+          return 'es';
+        }
+      }
+
+      function wmPageKey() {
+        const path = location.pathname.replace(/\/+$/, '') || '/';
+        return WM_PAGE_KEYS[path] || 'home';
+      }
+
+      function wmApplyLang(lang) {
+        const dict = WM_I18N[lang] || WM_I18N.es;
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          const value = dict[el.getAttribute('data-i18n')];
+          if (value !== undefined) el.textContent = value;
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+          const value = dict[el.getAttribute('data-i18n-placeholder')];
+          if (value !== undefined) el.setAttribute('placeholder', value);
+        });
+
+        document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+          const value = dict[el.getAttribute('data-i18n-aria')];
+          if (value !== undefined) el.setAttribute('aria-label', value);
+        });
+
+        document.querySelectorAll('.lang-label').forEach(function (el) {
+          el.textContent = lang.toUpperCase();
+        });
+
+        document.querySelectorAll('.lang-toggle').forEach(function (el) {
+          el.setAttribute('aria-label', dict['lang.switch']);
+        });
+
+        const pageKey = wmPageKey();
+        const pageTitle = dict['page.' + pageKey];
+        if (pageTitle) document.title = pageTitle + ' | Manzft';
+
+        const meta = document.querySelector('meta[name="description"]');
+        const metaText = dict['meta.' + pageKey];
+        if (meta && metaText) meta.setAttribute('content', metaText);
+
+        try {
+          localStorage.setItem(WM_LANG_KEY, lang);
+        } catch (e) {}
+      }
+
+      document.querySelectorAll('.lang-toggle').forEach(function (button) {
+        button.addEventListener('click', function () {
+          wmApplyLang(wmGetLang() === 'es' ? 'en' : 'es');
+        });
+      });
+
+      function wmStart() {
+        wmApplyLang(wmGetLang());
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', wmStart);
+      } else {
+        wmStart();
+      }
     </script>
 
     <main class="flex-1">
